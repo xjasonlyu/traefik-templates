@@ -24,7 +24,7 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - acme:/acme
+      - ./acme:/acme
 
     command:
       # Global
@@ -62,6 +62,3 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`whoami.mydomain.com`)"
       - "traefik.http.services.whoami.loadbalancer.server.port=80"
-
-volumes:
-  acme:

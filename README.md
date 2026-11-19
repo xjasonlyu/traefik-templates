@@ -28,7 +28,7 @@ Requirements:
 ## How it works
 
 - Traefik uses host networking, so each service can stay on its own network. Linux only.
-- HTTP is redirected to HTTPS, and certificates are stored in the `acme` volume.
+- HTTP is redirected to HTTPS, and certificates are stored in `acme/`.
 - Only containers labeled `traefik.enable=true` are exposed.
 
 ## Adding a service
