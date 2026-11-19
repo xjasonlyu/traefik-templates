@@ -28,7 +28,8 @@ Requirements:
 ## How it works
 
 - Traefik uses host networking, so each service can stay on its own network. Linux only.
-- HTTP is redirected to HTTPS, and certificates are stored in the `acme` volume.
+- HTTP is redirected to HTTPS.
+- Certificates are stored in `docker/acme/acme.json`, created on first start. Back up the `acme/` directory to keep certificates when moving hosts. It holds private keys and is ignored by git.
 - Only containers labeled `traefik.enable=true` are exposed.
 
 ## Adding a service
