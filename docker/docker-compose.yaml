@@ -3,9 +3,11 @@ services:
     image: traefik:v3
     container_name: traefik
     restart: unless-stopped
-    network_mode: host
     security_opt:
       - no-new-privileges:true
+
+    # Host network: reach services on their own networks (Linux only)
+    network_mode: host
 
     deploy:
       resources:
@@ -22,10 +24,10 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - acme:/acme:rw
+      - acme:/acme
 
     command:
-      # Providers 
+      # Providers
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
 
