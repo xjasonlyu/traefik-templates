@@ -24,7 +24,6 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      # ACME account and certificates, including private keys
       - ./acme:/acme
 
     command:
