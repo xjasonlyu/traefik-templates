@@ -45,7 +45,6 @@ services:
       - "--entrypoints.websecure.address=:443"
       - "--entrypoints.websecure.asdefault=true"
       - "--entrypoints.websecure.http3=false"
-      - "--entrypoints.websecure.http.encodedcharacters.allowencodednullcharacter=false"
       - "--entrypoints.websecure.http.tls=true"
       - "--entrypoints.websecure.http.tls.certresolver=letsencrypt"
 
