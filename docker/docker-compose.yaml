@@ -22,6 +22,14 @@ services:
         max-size: "20m"
         max-file: "10"
 
+    # Uses the ping endpoint below; keep the address in sync with `command`
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping", "--entrypoints.traefik.address=127.0.0.1:8080"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - acme:/acme
@@ -33,6 +41,10 @@ services:
 
       # Logs
       - "--log.level=ERROR"
+
+      # Ping: /ping for the health check, on localhost only (host network)
+      - "--ping=true"
+      - "--entrypoints.traefik.address=127.0.0.1:8080"
 
       # Providers
       - "--providers.docker=true"

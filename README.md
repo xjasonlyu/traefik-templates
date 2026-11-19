@@ -30,6 +30,7 @@ Requirements:
 - Traefik uses host networking, so each service can stay on its own network. Linux only.
 - HTTP is redirected to HTTPS, and certificates are stored in the `acme` volume.
 - Only containers labeled `traefik.enable=true` are exposed.
+- A Docker health check calls Traefik's `/ping` endpoint, which listens only on `127.0.0.1:8080`. Check it with `docker ps`.
 
 ## Adding a service
 
