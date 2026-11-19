@@ -30,6 +30,9 @@ services:
       # Global
       - "--global.checknewversion=false"
 
+      # Logs
+      - "--log.level=ERROR"
+
       # Providers
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
