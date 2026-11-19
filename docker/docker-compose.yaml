@@ -41,6 +41,7 @@ services:
       - "--entrypoints.websecure.http.tls.certresolver=letsencrypt"
 
       # Certificate Resolvers
+      - "--certificatesresolvers.letsencrypt.acme.keytype=EC256"
       - "--certificatesresolvers.letsencrypt.acme.email=me@mydomain.com"
       - "--certificatesresolvers.letsencrypt.acme.storage=/acme/acme.json"
       - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
