@@ -29,6 +29,7 @@ services:
     command:
       # Global
       - "--global.checknewversion=false"
+      - "--global.aliasheadersstrategy=delete"
 
       # Logs
       - "--log.level=ERROR"
@@ -44,6 +45,7 @@ services:
       - "--entrypoints.websecure.address=:443"
       - "--entrypoints.websecure.asdefault=true"
       - "--entrypoints.websecure.http3=false"
+      - "--entrypoints.websecure.http.encodedcharacters.allowencodednullcharacter=false"
       - "--entrypoints.websecure.http.tls=true"
       - "--entrypoints.websecure.http.tls.certresolver=letsencrypt"
 
@@ -60,7 +62,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`whoami.mydomain.com`)"
-      - 'traefik.http.services.whoami.loadbalancer.server.port=80'
+      - "traefik.http.services.whoami.loadbalancer.server.port=80"
 
 volumes:
   acme:
